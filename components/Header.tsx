@@ -30,7 +30,7 @@ export default function Header() {
   }, [pathname]);
   return (
     <header
-      className={`flex justify-between items-center ${isHeroVisible ? "bg-transparent" : "bg-black"} p-5 md:px-20 h-20 fixed left-0 w-full top-0`}
+      className={`flex justify-between z-50 items-center ${isHeroVisible ? "bg-transparent" : "bg-black"} p-5 md:px-20 h-20 fixed left-0 w-full top-0`}
     >
       <div className="flex gap-3 items-center">
         <div className="relative w-8 h-11">

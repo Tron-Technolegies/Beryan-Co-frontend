@@ -2,7 +2,7 @@ import React from "react";
 
 export default function ArtOfDum() {
   return (
-    <div className="p-5 md:px-20 bg-[#0D0600] min-h-screen flex justify-between items-center">
+    <section className="p-5 md:px-20 bg-[#0D0600] min-h-[90vh] flex justify-between items-center">
       <div className="flex flex-col gap-5 w-full">
         <p className="text-[#C8960A] font-aller tracking-widest text-xs">
           THE ART OF DUM
@@ -44,7 +44,7 @@ export default function ArtOfDum() {
         <StatsItem stat="18" content="Award Winning Recipes" />
         <StatsItem stat="4.9★" content="Average Guest Rating" />
       </div>
-    </div>
+    </section>
   );
 }
 

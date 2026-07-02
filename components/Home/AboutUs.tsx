@@ -5,7 +5,7 @@ import AboutUsCard from "./AboutUsCard";
 
 export default function AboutUs() {
   return (
-    <div className="bg-[#FAF5E9] p-5 md:px-20 flex justify-between items-center min-h-screen w-full">
+    <section className="bg-[#FAF5E9] p-5 md:px-20 flex justify-between items-center min-h-[90vh] w-full">
       <div className="w-full flex flex-col gap-5">
         <p className="text-xs tracking-widest font-dm text-[#C8960A] font-semibold">
           ABOUT US
@@ -41,6 +41,6 @@ export default function AboutUs() {
           <AboutUsCard />
         </div>
       </div>
-    </div>
+    </section>
   );
 }

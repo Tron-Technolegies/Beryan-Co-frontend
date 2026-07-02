@@ -4,7 +4,7 @@ import { BsDashLg } from "react-icons/bs";
 
 export default function Experience() {
   return (
-    <div className="p-5 md:px-20 bg-[#F5EDD8] min-h-screen flex justify-between items-center">
+    <section className="p-5 md:px-20 bg-[#F5EDD8] min-h-[90vh] flex justify-between items-center">
       <div className="flex flex-col gap-5 w-full">
         <p className="flex gap-3 items-center text-[#C8960A] tracking-widest font-semibold text-xs">
           <BsDashLg />
@@ -90,7 +90,7 @@ export default function Experience() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

@@ -3,7 +3,7 @@ import React from "react";
 
 export default function AboutUsCard() {
   return (
-    <div className="bg-[#2A1506] p-7 rounded-2xl flex flex-col gap-5 absolute -right-1/4 bottom-1/6 max-w-70">
+    <div className="bg-[#2A1506] p-4 sm:p-6 rounded-2xl flex flex-col gap-4 absolute right-4 bottom-4 lg:-right-8 lg:bottom-10 w-[240px] sm:w-[280px] shadow-2xl">
       <ListItem
         image="/icon1.png"
         title="Mughal Heritage"

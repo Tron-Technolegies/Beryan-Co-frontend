@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { BsDashLg } from "react-icons/bs";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 type Menu = {
   name: string;
@@ -56,56 +57,56 @@ export default function Menu() {
     features: ["SIGNATURE", "BESTSELLER", "NON-VEG"],
     desc: "The iconic Hyderabadi biryani prepared with fragrant basmati rice, premium spices, and slow-cooked using the traditional dum method for unmatched aroma and flavor.",
   });
+  const [fade, setFade] = useState(true);
+  const revealRef = useScrollReveal();
 
   useEffect(() => {
-    const item: Menu = menuItems.find((item) => item.name === active) as Menu;
-    setCurrent(item);
+    setFade(false);
+    const timer = setTimeout(() => {
+      const item: Menu = menuItems.find((item) => item.name === active) as Menu;
+      if (item) setCurrent(item);
+      setFade(true);
+    }, 200);
+    return () => clearTimeout(timer);
   }, [active]);
+
   return (
-    <section className="flex items-center min-h-[90vh]">
-      <div className="w-2/5 bg-[#0A0400] min-h-[90vh] flex flex-col justify-center gap-7 p-5 md:px-20">
-        <p className="text-[#F5EDD8] font-aller text-xs tracking-widest">
+    <section 
+      id="menu" 
+      ref={revealRef}
+      className="flex flex-col lg:flex-row min-h-[90vh] w-full overflow-hidden"
+    >
+      <div className="w-full lg:w-2/5 bg-[#0A0400] flex flex-col justify-center gap-7 px-6 py-12 md:px-20 reveal reveal-left">
+        <p className="text-[#F5EDD8] font-aller text-xs tracking-widest uppercase">
           OUR MENU
         </p>
-        <div className="flex flex-col gap-4 font-tan">
-          <MenuItem
-            active={active}
-            setActive={setActive}
-            keyword="Hyderabadi Dum"
-          />
-          <MenuItem
-            active={active}
-            setActive={setActive}
-            keyword="Lucknowi Nawabi"
-          />
-          <MenuItem
-            active={active}
-            setActive={setActive}
-            keyword="Chicken Tikka"
-          />
-          <MenuItem active={active} setActive={setActive} keyword="Ambur Dum" />
-          <MenuItem
-            active={active}
-            setActive={setActive}
-            keyword="Persian Saffron"
-          />
-          <MenuItem
-            active={active}
-            setActive={setActive}
-            keyword="Vegetarian"
-          />
+        <div className="flex flex-row lg:flex-col overflow-x-auto lg:overflow-visible gap-6 lg:gap-4 font-tan pb-4 lg:pb-0 scrollbar-none whitespace-nowrap">
+          {menuItems.map((item) => (
+            <MenuItem
+              key={item.name}
+              active={active}
+              setActive={setActive}
+              keyword={item.name}
+            />
+          ))}
         </div>
-        <p className="text-[#4A3820] text-xs font-aller">
-          Starting from <span className="text-sm text-[#C8960A]">140+</span> ·
+        <p className="text-[#4A3820] text-xs font-aller mt-2">
+          Starting from <span className="text-sm text-[#C8960A] font-semibold">140+</span> ·
           All prices include taxes
         </p>
       </div>
+      
       <div
-        className="w-3/5 min-h-[90vh] bg-cover relative flex flex-col gap-3 justify-end p-5"
-        style={{ backgroundImage: `url(${current.image})` }}
+        className={`w-full lg:w-3/5 min-h-[45vh] sm:min-h-[55vh] lg:min-h-[90vh] bg-cover bg-center relative flex flex-col gap-3 justify-end p-6 sm:p-12 transition-all duration-500 reveal reveal-right delay-200`}
+        style={{ 
+          backgroundImage: `url(${current.image})`,
+          transitionProperty: "background-image, opacity"
+        }}
       >
-        <div className="absolute inset-0 bg-linear-to-t from-black"></div>
-        <div className="z-30 mb-7">
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent z-10"></div>
+        <div className={`z-30 mb-2 transition-all duration-500 transform ${
+          fade ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+        }`}>
           <Item
             features={current.features}
             item={current.name}
@@ -129,10 +130,12 @@ function MenuItem({
   return (
     <p
       onClick={() => setActive(keyword)}
-      className={` text-2xl flex gap-2 items-center hover:text-[#F5EDD8] ease-in-out duration-300 hover:ml-3 ${active === keyword ? "text-[#F5EDD8]" : "text-[#7A6B50]"}`}
+      className={`text-xl sm:text-2xl flex gap-2 items-center hover:text-[#F5EDD8] cursor-pointer transition-all duration-300 hover:translate-x-1 whitespace-nowrap shrink-0 ${
+        active === keyword ? "text-[#F5EDD8]" : "text-[#7A6B50]"
+      }`}
     >
       {active === keyword && (
-        <span>
+        <span className="shrink-0">
           <BsDashLg />
         </span>
       )}
@@ -152,18 +155,18 @@ function Item({
 }) {
   return (
     <div className="flex flex-col gap-3">
-      <div className="flex gap-2 items-center">
+      <div className="flex gap-2 items-center flex-wrap">
         {features.map((item) => (
           <p
             key={item}
-            className="p-1 rounded-s-full rounded-e-full px-2 text-xs font-aller tracking-widest text-[#C8B090] border border-[#C8960A40]"
+            className="p-1 rounded-full px-3 text-[10px] font-aller tracking-widest text-[#C8B090] border border-[#C8960A40]"
           >
             {item}
           </p>
         ))}
       </div>
-      <p className="text-4xl font-tan text-[#F5EDD8]">{item}</p>
-      <p className="font-aller text-sm text-[#C8B09087] max-w-150">{desc}</p>
+      <p className="text-3xl sm:text-4xl font-tan text-[#F5EDD8]">{item}</p>
+      <p className="font-aller text-xs sm:text-sm text-[#C8B090CC] max-w-md leading-relaxed">{desc}</p>
     </div>
   );
 }

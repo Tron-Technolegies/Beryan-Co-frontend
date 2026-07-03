@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import AboutUs from "@/components/Home/AboutUs";
 import ArtOfDum from "@/components/Home/ArtOfDum";
@@ -29,6 +30,7 @@ export default function Home() {
       <AsSeenIn />
       <Reserve />
       <Contact />
+      <Footer />
     </>
   );
 }

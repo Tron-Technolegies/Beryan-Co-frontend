@@ -1,31 +1,36 @@
+"use client";
 import Image from "next/image";
 import React from "react";
 import { BsDashLg } from "react-icons/bs";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 export default function Experience() {
+  const revealRef = useScrollReveal();
+
   return (
-    <section className="p-5 md:px-20 bg-[#F5EDD8] min-h-[90vh] flex justify-between items-center">
-      <div className="flex flex-col gap-5 w-full">
+    <section 
+      ref={revealRef}
+      className="px-6 py-16 md:px-20 bg-[#F5EDD8] min-h-[90vh] flex flex-col lg:flex-row gap-12 justify-between items-center overflow-hidden"
+    >
+      <div className="flex flex-col gap-5 w-full lg:w-1/2 reveal reveal-left">
         <p className="flex gap-3 items-center text-[#C8960A] tracking-widest font-semibold text-xs">
           <BsDashLg />
           THE BIRYANI EXPERIENCE
         </p>
-        <h4 className="text-[#0D0600] font-tan text-4xl">
-          More Than Just a Meal,
+        <h4 className="text-[#0D0600] font-tan text-3xl sm:text-4xl leading-tight">
+          More Than Just a Meal,<br />
+          <span className="text-[#C8960A]">It's a Royal Experience</span>
         </h4>
-        <h4 className="text-[#C8960A] font-tan text-4xl">
-          It's a Royal Experience
-        </h4>
-        <p className="text-[#5A3A1A] font-aller font-semibold text-sm max-w-130">
+        <p className="text-[#5A3A1A] font-aller font-semibold text-xs sm:text-sm max-w-xl">
           We believe that exceptional biryani is the product of discipline,
           heritage and love. Every ingredient is chosen with intent, every
           method carried from one generation to the next.
         </p>
-        <div className="mt-5">
+        <div className="mt-5 flex flex-col gap-2">
           <ListItem
             image="/expico-1.png"
             title="No Preservatives"
-            content="Every dish made fresh daily no artificial additives, ever."
+            content="Every dish made fresh daily—no artificial additives, ever."
           />
           <ListItem
             image="/expico-2.png"
@@ -35,7 +40,7 @@ export default function Experience() {
           <ListItem
             image="/expico-3.png"
             title="Authentic Cooking"
-            content="Sealed handi, slow flame the original dum method, unchanged."
+            content="Sealed handi, slow flame—the original dum method, unchanged."
           />
           <ListItem
             image="/expico-4.png"
@@ -44,48 +49,48 @@ export default function Experience() {
           />
         </div>
       </div>
-      <div className="w-full flex flex-col gap-3">
-        <div className="flex gap-2 items-start">
-          <div className="relative w-50 h-60">
+      <div className="w-full lg:w-1/2 flex flex-col gap-3 reveal reveal-right delay-200">
+        <div className="flex gap-3 items-start">
+          <div className="relative flex-1 aspect-[4/5] h-auto">
             <Image
               src={"/exp-1.jpg"}
               alt={"experience"}
               fill
-              sizes="(max-width:768px) 100vw, 100vw"
+              sizes="(max-width:768px) 100vw, 50vw"
               priority
-              className="object-cover w-full rounded-md"
+              className="object-cover w-full rounded-md shadow-md"
             />
           </div>
-          <div className="relative w-50 h-40">
+          <div className="relative flex-1 aspect-[4/3] h-auto mt-6">
             <Image
               src={"/exp-2.jpg"}
               alt={"experience"}
               fill
-              sizes="(max-width:768px) 100vw, 100vw"
+              sizes="(max-width:768px) 100vw, 50vw"
               priority
-              className="object-cover w-full rounded-md"
+              className="object-cover w-full rounded-md shadow-md"
             />
           </div>
         </div>
-        <div className="flex gap-2 items-start">
-          <div className="relative w-50 h-60">
+        <div className="flex gap-3 items-start">
+          <div className="relative flex-1 aspect-[4/5] h-auto -mt-6">
             <Image
               src={"/exp-3.jpg"}
               alt={"experience"}
               fill
-              sizes="(max-width:768px) 100vw, 100vw"
+              sizes="(max-width:768px) 100vw, 50vw"
               priority
-              className="object-cover w-full rounded-md"
+              className="object-cover w-full rounded-md shadow-md"
             />
           </div>
-          <div className="relative w-50 h-40">
+          <div className="relative flex-1 aspect-[4/3] h-auto">
             <Image
               src={"/exp-4.jpg"}
               alt={"experience"}
               fill
-              sizes="(max-width:768px) 100vw, 100vw"
+              sizes="(max-width:768px) 100vw, 50vw"
               priority
-              className="object-cover w-full rounded-md"
+              className="object-cover w-full rounded-md shadow-md"
             />
           </div>
         </div>

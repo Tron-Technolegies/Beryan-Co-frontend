@@ -25,6 +25,10 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 } */
 
+html,
+body {
+  scroll-behavior: smooth;
+}
 @theme {
   --font-dm: var(--font-dm-sans);
   --font-aller: var(--font-aller);
@@ -35,3 +39,98 @@ body {
 .landing-height {
   min-height: calc(100vh - 80px);
 }
+
+/* Custom reveal transition styling */
+.reveal {
+  opacity: 0;
+  transform: translateY(2rem);
+  transition-property: opacity, transform;
+  transition-duration: 1000ms;
+  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delay classes */
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+.delay-500 { transition-delay: 500ms; }
+.delay-600 { transition-delay: 600ms; }
+.delay-700 { transition-delay: 700ms; }
+
+/* Scale reveal variation */
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.95) translateY(1.2rem);
+  transition: opacity 1000ms cubic-bezier(0.215, 0.61, 0.355, 1), transform 1000ms cubic-bezier(0.215, 0.61, 0.355, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-scale.reveal-visible {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+/* Horizontal slide reveal variations */
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-2.5rem);
+  transition: opacity 1000ms cubic-bezier(0.215, 0.61, 0.355, 1), transform 1000ms cubic-bezier(0.215, 0.61, 0.355, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-left.reveal-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(2.5rem);
+  transition: opacity 1000ms cubic-bezier(0.215, 0.61, 0.355, 1), transform 1000ms cubic-bezier(0.215, 0.61, 0.355, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-right.reveal-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Fade only reveal */
+.reveal-fade {
+  opacity: 0;
+  transition: opacity 1200ms cubic-bezier(0.215, 0.61, 0.355, 1);
+  will-change: opacity;
+}
+
+.reveal-fade.reveal-visible {
+  opacity: 1;
+}
+
+/* Smooth custom parallax effect using custom properties if needed */
+.parallax-bg {
+  background-attachment: fixed;
+}
+
+@media (max-width: 1024px) {
+  .parallax-bg {
+    background-attachment: scroll;
+  }
+}
+
+/* Hide scrollbar for clean horizontal scrolling */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+

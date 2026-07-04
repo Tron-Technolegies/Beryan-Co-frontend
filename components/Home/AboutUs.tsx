@@ -24,7 +24,8 @@ export default function AboutUs() {
         <p className="font-aller text-[#6B4E35] font-semibold max-w-xl text-sm leading-relaxed">
           Born from the royal kitchens of Hyderabad, our biryani carries
           centuries of Mughal culinary wisdom in every grain. We honour the
-          original dum cooking technique—sealed vessels, slow flames, and time—because greatness cannot be hurried.
+          original dum cooking technique—sealed vessels, slow flames, and
+          time—because greatness cannot be hurried.
         </p>
         <p className="font-dm text-[#6B4E35] text-sm max-w-xl leading-relaxed">
           Each pot is a symphony of hand-ground spices, premium aged basmati,
@@ -36,9 +37,9 @@ export default function AboutUs() {
         </p>
       </div>
       <div className="w-full lg:w-1/2 flex justify-center reveal reveal-right delay-200">
-        <div className="relative w-full max-w-md sm:max-w-lg aspect-[5/6] h-auto">
+        <div className="relative w-full max-w-md sm:max-w-lg aspect-5/6 h-auto">
           <Image
-            src={"/about-us.png"}
+            src={"/about-us.jpg"}
             alt="about-us"
             fill
             sizes="(max-width:768px) 100vw, 50vw"

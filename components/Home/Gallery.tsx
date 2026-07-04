@@ -26,7 +26,7 @@ export default function Gallery() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 place-content-stretch reveal reveal-scale delay-200">
         <div className="h-60 sm:col-span-2 relative overflow-hidden group">
           <Image
-            src={"/gallery-1.png"}
+            src={"/gallery-1.jpg"}
             alt="gallery-image"
             fill
             sizes="(max-width:768px) 100vw, 50vw"

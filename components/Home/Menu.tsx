@@ -19,7 +19,7 @@ export const menuItems: Menu[] = [
   },
   {
     name: "Lucknowi Nawabi",
-    image: "/menu.png",
+    image: "/menu.jpg",
     features: ["ROYAL RECIPE", "MILD SPICE", "NON-VEG"],
     desc: "An elegant Awadhi-style biryani inspired by the royal kitchens of Lucknow, delicately seasoned with aromatic whole spices for a refined taste.",
   },
@@ -71,8 +71,8 @@ export default function Menu() {
   }, [active]);
 
   return (
-    <section 
-      id="menu" 
+    <section
+      id="menu"
       ref={revealRef}
       className="flex flex-col lg:flex-row min-h-[90vh] w-full overflow-hidden"
     >
@@ -91,22 +91,25 @@ export default function Menu() {
           ))}
         </div>
         <p className="text-[#4A3820] text-xs font-aller mt-2">
-          Starting from <span className="text-sm text-[#C8960A] font-semibold">140+</span> ·
+          Starting from{" "}
+          <span className="text-sm text-[#C8960A] font-semibold">140+</span> ·
           All prices include taxes
         </p>
       </div>
-      
+
       <div
         className={`w-full lg:w-3/5 min-h-[45vh] sm:min-h-[55vh] lg:min-h-[90vh] bg-cover bg-center relative flex flex-col gap-3 justify-end p-6 sm:p-12 transition-all duration-500 reveal reveal-right delay-200`}
-        style={{ 
+        style={{
           backgroundImage: `url(${current.image})`,
-          transitionProperty: "background-image, opacity"
+          transitionProperty: "background-image, opacity",
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent z-10"></div>
-        <div className={`z-30 mb-2 transition-all duration-500 transform ${
-          fade ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-        }`}>
+        <div
+          className={`z-30 mb-2 transition-all duration-500 transform ${
+            fade ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+          }`}
+        >
           <Item
             features={current.features}
             item={current.name}
@@ -166,7 +169,9 @@ function Item({
         ))}
       </div>
       <p className="text-3xl sm:text-4xl font-tan text-[#F5EDD8]">{item}</p>
-      <p className="font-aller text-xs sm:text-sm text-[#C8B090CC] max-w-md leading-relaxed">{desc}</p>
+      <p className="font-aller text-xs sm:text-sm text-[#C8B090CC] max-w-md leading-relaxed">
+        {desc}
+      </p>
     </div>
   );
 }

@@ -14,7 +14,7 @@ export default function LandingSection() {
   return (
     <section
       id="home"
-      className="min-h-screen bg-[#0D0600] bg-cover md:bg-center bg-bottom-right flex flex-col justify-center px-6 md:px-20 py-28 md:py-0 relative overflow-hidden"
+      className="min-h-screen bg-[#0D0600] bg-cover bg-center flex flex-col justify-center px-6 md:px-20 py-28 md:py-0 relative overflow-hidden"
       style={{ backgroundImage: "url('/landing.jpg')" }}
     >
       {/* Overlay to ensure high contrast and text readability on all devices */}
